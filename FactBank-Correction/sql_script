@@ -1,0 +1,7 @@
+ Update fb_factValue Set eText = '* ' || fb_factValue.eText || ' *'
+
+select distinct one.*, two.factValue
+from tokens_tml as one
+left join fb_factValue as two
+on (one.sentId = two.sentId and one.tmlTagId = two.eId and one.text = two.eText and two.relSourceText = '''AUTHOR''' and one.file = two.file)
+
